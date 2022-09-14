@@ -1,0 +1,16 @@
+/* @import '../../assets/style/variables.scss'; */
+
+.header {
+   width: 100%;
+   height: 8rem;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   position: relative;
+   padding: 0 10rem;
+}
+
+.actions {
+   display: flex;
+   align-items: center;
+}

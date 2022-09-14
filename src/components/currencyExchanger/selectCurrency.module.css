@@ -1,0 +1,58 @@
+.select {
+   width: 100%;
+   position: relative;
+   user-select: none;
+}
+
+.input {
+   width: 4.3rem;
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+   cursor: pointer;
+   margin-right: 2.2rem;
+   font-size: 1.8rem;
+   font-weight: 500;
+}
+
+.input:last-child {
+   margin-left: 1rem;
+}
+
+.dropdown {
+   font-size: 1.8rem;
+   font-weight: 500;
+   text-align: center;
+}
+
+.list {
+   position: absolute;
+   top: 4.5rem;
+   left: -1.6rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   width: 11.4rem;
+   height: auto;
+   overflow-y: auto;
+   box-shadow: 0 .4rem 3.5rem rgb(168 172 176 / 19%);
+   background-color: #fff;
+   z-index: 1000;
+}
+
+.item {
+   height: 4.5rem;
+   line-height: 4.5rem;
+   transition: background-color .2s ease-in;
+   padding-right: 1.5rem;
+}
+
+.item:hover {
+   transition: background-color .2s ease-in;
+   background-color: #EEEEEE;
+   cursor: pointer;
+}
+
+.arrow.active {
+   transform: rotate(180deg);
+}

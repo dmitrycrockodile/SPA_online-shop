@@ -1,0 +1,90 @@
+.cartModal {
+   position: absolute;
+   top: auto;
+   right: 0;
+   z-index: 100;
+   width: 100vw;
+   height: 100%;
+   transition: all .15s ease-out .1s;
+   opacity: 0;
+   pointer-events: none;
+   visibility: hidden;
+}
+
+.cartModal.open  {
+   background: rgba(57, 55, 72, .22);
+   opacity: 1;
+   visibility: visible;
+   pointer-events: all;
+   transition: all .15s ease-out;
+}
+
+.cartModal.open .content {
+   transform: translateY(0);
+   transition: all .15s ease-out .1s;
+}
+
+.content {
+   background-color: #fff;
+   overflow-y: scroll;
+   padding: 3.2rem 1.6rem;
+   width: 32.5rem;
+   height: fit-content;
+   max-height: 66.7rem;
+   margin: 0 5vw 0 auto;
+   transform: translateY(15vh);
+   transition: all .15s ease-out;
+}
+
+.title {
+   font-weight: 700;
+   font-size: 1.6rem;
+}
+
+.title span {
+   font-weight: 500;
+}
+
+.list {
+   margin: 3rem 0;
+}
+
+.list li {
+   margin-top: 4rem;
+}
+
+.price {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-size: 1.6rem;
+}
+
+.price span {
+   font-weight: 700;
+}
+
+.buttons {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-top: 3rem;
+}
+
+.btn {
+   text-transform: uppercase;
+   background-color: #fff;
+   border: 1px solid #1D1F22;
+   cursor: pointer;
+   padding: 1.2rem 3.3rem;
+   font-weight: 600;
+   font-size: 1.4rem;
+   font-family: 'Raleway', sans-serif;
+   transition: background-color .1s ease-in, color .1s ease-in, border .1s ease-in;
+}
+
+.btn:hover {
+   color: #fff;
+   background-color: #5ECE7B;
+   border: 1px solid #5ECE7B;
+}

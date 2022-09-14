@@ -1,0 +1,22 @@
+.cart {
+   position: relative;
+   cursor: pointer;
+}
+
+.counter {
+   position: absolute;
+   top: -0.8rem;
+   right: -1.2rem;
+   background: #1D1F22;
+   color: white;
+   border-radius: 6rem;
+   width: 2rem;
+   height: 2rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-weight: 700;
+   font-size: 1.4rem;
+   line-height: 1.4rem;
+   padding-bottom: 1.5px;
+}

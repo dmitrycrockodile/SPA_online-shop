@@ -1,0 +1,99 @@
+.product {
+   width: 100%;
+   display: flex;
+   margin-top: 8rem;
+}
+
+.content {
+   margin-left: 10rem;
+   max-width: 29.2rem;
+}
+
+.title {
+   font-weight: 400;
+   font-size: 2.8rem;
+   line-height: 4rem;
+   line-height: 160%;
+}
+
+.title span {
+   font-weight: 600;
+}
+
+.price {
+   font-weight: 700;
+   font-size: 2.2rem;
+   margin-top: 1.7rem;
+   line-height: 160%;
+}
+
+.typeTitle {
+   font-weight: 700;
+   font-size: 1.6rem;
+   text-transform: uppercase;
+   margin-top: 4rem;
+   line-height: 1.6rem;
+}
+
+.item.modal .info {
+   width: 13.6rem;
+}
+
+.info {
+   height: 100%;
+   display: flex;
+   flex-grow: 2;
+   flex-direction: column;
+}
+
+.orderBtn {
+   border: none;
+   background-color: #53cb72;
+   color: #fff;
+   font-weight: 600;
+   font-size: 1.4rem;
+   text-transform: uppercase;
+   margin-top: 2rem;
+   padding: 6% 0;
+   width: 100%;
+   cursor: pointer;
+}
+
+.orderBtn.notInStock {
+   background-color: #fff;
+   color: #1D1F22;
+   border: 1px solid #1D1F22;
+   cursor: default;
+}
+
+.description {
+   font-family: 'Roboto';
+   margin-top: 4rem;
+   font-size: 1.6rem;
+   line-height: 160%;
+   max-height: 10rem;
+   overflow: scroll;
+}
+
+.description h1 {
+   font-size: 2rem;
+   padding-bottom: .7rem;
+}
+
+.description h3 {
+   font-size: 1.8rem;
+   padding-bottom: .7rem;
+}
+
+.description p {
+   padding-bottom: 1rem;
+}
+
+.description ul li {
+   padding-bottom: .5rem;
+}
+
+.slider {
+   width: 73rem;
+   height: 51rem;
+}

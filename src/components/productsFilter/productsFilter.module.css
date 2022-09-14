@@ -1,0 +1,31 @@
+.navigation {
+   margin-left: -3rem;
+}
+
+.link {
+   display: inline-block;
+   width: fit-content;
+   font-size: 1.6rem;
+   text-transform: uppercase;
+   position: relative;
+   background-color: transparent;
+   border: none;
+   cursor: pointer;
+   margin-left: 3rem;
+}
+
+.link.active {
+   font-weight: 600;
+   color: #5ECE7B;
+}
+
+.link.active.link::before {
+   content: '';
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   top: 300%;
+   width: calc(100% + 3.2rem);
+   height: .2rem;
+   background-color: #5ECE7B;
+}

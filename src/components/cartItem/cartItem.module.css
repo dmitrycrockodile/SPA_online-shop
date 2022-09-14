@@ -1,0 +1,100 @@
+.item {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+}
+
+.item.modal .title, .item.modal .title span {
+   font-weight: 300;
+   font-size: 1.6rem;
+}
+
+.title {
+   font-weight: 400;
+   font-size: 2.8rem;
+   line-height: 4rem;
+   line-height: 160%;
+}
+
+.title span {
+   font-weight: 600;
+}
+
+.item.modal .price {
+   font-weight: 500;
+   font-size: 1.6rem;
+   margin-top: .8rem;
+}
+
+.price {
+   font-weight: 700;
+   font-size: 2.2rem;
+   margin-top: 1.7rem;
+   line-height: 160%;
+}
+
+.item.modal .typeTitle {
+   font-weight: 400;
+   font-size: 1.4rem;
+   margin-top: .8rem;
+   text-transform: capitalize;
+}
+
+.typeTitle {
+   font-weight: 700;
+   font-size: 1.6rem;
+   text-transform: uppercase;
+   margin-top: 2rem;
+   line-height: 1.6rem;
+}
+
+.item.modal .info {
+   width: 13.6rem;
+}
+
+.info {
+   height: 100%;
+   display: flex;
+   flex-grow: 2;
+   flex-direction: column;
+}
+
+.item.modal .img {
+   width: 12rem;
+}
+
+.item.modal .counter {
+   font-size: 1.6rem;
+}
+
+.counter {
+   display: flex;
+   flex-grow: .2;
+   flex-direction: column;
+   justify-content: space-between;
+   font-weight: 500;
+   font-size: 2.4rem;
+   align-items: center;
+}
+
+.item.modal .counterBtn {
+   height: 2.4rem;
+}
+
+.counterBtn {
+   background-color: transparent;
+   border: none;
+   cursor: pointer;
+   height: 3.5rem;
+}
+
+.imageContainer {
+   width: 20rem;
+   height: 28.8rem;
+   align-self: center;
+}
+
+.item.modal .imageContainer {
+   width: 12rem;
+   height: 19rem;
+}

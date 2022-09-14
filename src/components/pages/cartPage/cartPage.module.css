@@ -1,0 +1,75 @@
+.cartPage {
+   padding-bottom: 27.5rem;
+}
+
+.makeOrder {
+   font-size: 2.3rem;
+   line-height: 160%;
+   font-weight: 500;
+}
+
+.title {
+   padding-top: 8rem;
+   padding-bottom: 5.5rem;
+   font-weight: 700;
+   font-size: 3.2rem;
+   line-height: 4rem;
+   text-transform: uppercase;
+}
+
+.list li {
+   padding: 2.4rem 0;
+   border-top: 1px solid #E5E5E5;
+}
+
+.list li:last-child {
+   border-bottom: 1px solid #E5E5E5;
+}
+
+.summary {
+   margin-top: 3rem;
+   width: 28rem;
+}
+
+.orderBtn {
+   background-color: #53cb72;
+   border: none;
+   color: #fff;
+   font-weight: 600;
+   font-size: 1.4rem;
+   text-transform: uppercase;
+   width: 100%;
+   padding: 6% 0;
+   cursor: pointer;
+   margin-top: 2rem;
+}
+
+.checkout {
+   display: flex;
+   align-items: center;
+   width: max-content;
+}
+
+.total {
+   display: flex;
+   flex-direction: column;
+}
+
+.total:last-child {
+   margin-left: 1rem;
+}
+
+.total h6, .total h5, .total span {
+   font-weight: 400;
+   font-size: 2.4rem;
+   line-height: 2.8rem;
+   margin-top: .8rem;
+}
+
+.total h5 {
+   font-weight: 500;
+}
+
+.total span {
+   font-weight: 700;
+}
