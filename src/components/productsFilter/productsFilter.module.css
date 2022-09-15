@@ -12,6 +12,11 @@
    border: none;
    cursor: pointer;
    margin-left: 3rem;
+   transition: all .2s;
+}
+
+.link:hover {
+   color: #159b39;
 }
 
 .link.active {

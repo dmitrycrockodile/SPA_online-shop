@@ -57,6 +57,12 @@
    padding: 6% 0;
    width: 100%;
    cursor: pointer;
+   transition: all .3s;
+}
+
+.orderBtn:hover {
+   background-color: #39c85f;
+   border-radius: 5rem;
 }
 
 .orderBtn.notInStock {

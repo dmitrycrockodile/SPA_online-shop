@@ -29,6 +29,11 @@
    height: 2.4rem;
    border: none;
    cursor: pointer;
+   transition: all .3s;
+}
+
+.btn:hover {
+   background-color: rgba(0, 0, 0, 1);
 }
 
 .btn:disabled {

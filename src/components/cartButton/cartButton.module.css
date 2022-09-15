@@ -1,6 +1,11 @@
 .cart {
    position: relative;
    cursor: pointer;
+   transition: all .2s;
+}
+
+.cart:hover {
+   transform: translateY(-.05rem);
 }
 
 .counter {
