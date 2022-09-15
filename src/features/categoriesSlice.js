@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+import { loadingStatus, errorMessage } from "../utils/constants";
 import { GET_CATEGORIES } from "../utils/queries";
 
 export const loadCategories = createAsyncThunk(
@@ -9,7 +10,7 @@ export const loadCategories = createAsyncThunk(
          const categories = await GET_CATEGORIES();
          return categories;
       } catch (e) {
-         console.log('Sorry, something went wrong!' + e.message);
+         console.log(errorMessage + e.message);
       }
    }
 )
@@ -18,7 +19,7 @@ const categoriesSlice = createSlice({
    name: '@@category',
    initialState: {
       entities: [],
-      loading: 'idle', //loading
+      loading: loadingStatus, 
       error: null
    },
    reducers: {},

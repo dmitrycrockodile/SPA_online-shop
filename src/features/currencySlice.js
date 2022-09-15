@@ -1,4 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
+import { errorMessage, currency, defaultCurrency, loadingStatus, successStatus, errorStatus } from "../utils/constants";
 import { GET_CURRENCIES } from "../utils/queries";
 
 export const loadCurrencies = createAsyncThunk(
@@ -8,15 +10,15 @@ export const loadCurrencies = createAsyncThunk(
          const currencies = GET_CURRENCIES();
          return currencies;
       } catch (e) {
-         console.log('Sorry, something went wrong!' + e.message);
+         console.log(errorMessage + e.message);
       }
    }
 )
 
 const initialState = {
-   currentCurrency: localStorage.getItem("currency") ? JSON.parse(localStorage.getItem("currency")) : '$',
+   currentCurrency: localStorage.getItem(currency) ? JSON.parse(localStorage.getItem(currency)) : defaultCurrency,
    currencies: [],
-   status: 'idle',
+   status: loadingStatus,
    error: null,
 }
 
@@ -26,21 +28,21 @@ const currenciesSlice = createSlice({
    reducers: { 
       changeCurrency: (state, action) => {
          state.currentCurrency = action.payload;
-         localStorage.setItem("currency", JSON.stringify(state.currentCurrency));
+         localStorage.setItem(currency, JSON.stringify(state.currentCurrency));
       },
    },
    extraReducers: (builder) => {
       builder
          .addCase(loadCurrencies.pending, (state) => {
-            state.status = 'loading';
+            state.status = loadingStatus;
          })
          .addCase(loadCurrencies.fulfilled, (state, action) => {
-            state.status = 'success';
+            state.status = successStatus;
             state.currencies = action.payload;
          })
          .addCase(loadCurrencies.rejected, (state) => {
-            state.status = 'rejected';
-            state.error = 'Sorry, something went wrong...';
+            state.status = errorStatus;
+            state.error = errorMessage;
          })
    }
 });
