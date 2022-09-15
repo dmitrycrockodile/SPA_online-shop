@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import CurrencyExchanger from '../currencyExchanger/SelectCurrency';
 import ProductsFilter from '../productsFilter/ProductsFilter';
@@ -23,4 +24,8 @@ export default class TheHeader extends Component {
          </header>
       );
    }
+}
+
+TheHeader.propTypes = {
+   onToggleModal: PropTypes.func.isRequired,
 }

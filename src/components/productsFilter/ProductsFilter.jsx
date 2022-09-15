@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { changeFilter } from '../../features/productsFilterSlice';
 import { loadCategories } from '../../features/categoriesSlice';
@@ -7,7 +8,7 @@ import { loadCategories } from '../../features/categoriesSlice';
 import classes from './productsFilter.module.css';
 import { Link } from 'react-router-dom';
 
-class _ProductFilter extends Component {
+class ProductFilter extends Component {
    state = {
       isActive: null,
    }
@@ -45,9 +46,13 @@ const mapStateToProps = (state) => ({
    filter: state.filters,
    categories: state.categories,
 });
-const ProductFilter = connect(mapStateToProps, {
+export default connect(mapStateToProps, {
    changeFilter,
    loadCategories
-})(_ProductFilter);
+})(ProductFilter);
 
-export default ProductFilter;
+ProductFilter.propTypes = {
+   loadCategories: PropTypes.func.isRequired,
+   changeFilter: PropTypes.func.isRequired,
+   categories: PropTypes.object.isRequired,
+}

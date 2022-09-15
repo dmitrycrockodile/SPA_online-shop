@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { nanoid } from '@reduxjs/toolkit';
+import PropTypes from 'prop-types';
 
 import classes from './radioGroup.module.css';
 
@@ -30,9 +30,9 @@ class RadioGroup extends Component {
 
       const disabled = onChange ? false : true;
       const itemSizeClass = modalVersion ? `${classes.item} ${classes.modal}` : `${classes.item}`;
-
+     
       return (
-         <div key={name || nanoid()} className={itemSizeClass}>
+         <div key={name} className={itemSizeClass}>
             <h6 className={classes.typeTitle}>{name}:</h6>
             <div className={classes.typesContainer}>
                { name === 'Color' ? items.map(item =>
@@ -55,3 +55,10 @@ class RadioGroup extends Component {
 }
 
 export default RadioGroup;
+
+RadioGroup.propTypes = {
+   onChange: PropTypes.func,
+   attributes: PropTypes.object.isRequired,
+   attributeValues: PropTypes.object,
+   modalVersion: PropTypes.bool,
+}

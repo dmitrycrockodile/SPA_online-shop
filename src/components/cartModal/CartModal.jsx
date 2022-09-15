@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { decreaseCart, addToCart, getTotals } from '../../features/cartSlice';
 
@@ -75,3 +76,13 @@ export default connect(mapStateToProps, {
    decreaseCart,
    addToCart,
 })(CartModal);
+
+CartModal.propTypes = {
+   cart: PropTypes.object.isRequired,
+   onToggleModal: PropTypes.func.isRequired,
+   isOpen: PropTypes.bool.isRequired,
+   currencies: PropTypes.object.isRequired,
+   addToCart: PropTypes.func.isRequired,
+   decreaseCart: PropTypes.func.isRequired,
+   getTotals: PropTypes.func.isRequired,
+}

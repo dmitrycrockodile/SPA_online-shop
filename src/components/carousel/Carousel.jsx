@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { ReactComponent as Arrow } from '../../assets/icons/arrow-left.svg';
 
@@ -79,4 +80,12 @@ export default class Carousel extends Component {
          </div>
       );
    }
+}
+
+Carousel.propTypes = {
+   arr: PropTypes.arrayOf(PropTypes.string).isRequired,
+   alt: PropTypes.string.isRequired,
+   modalVersion: PropTypes.bool,
+   arrows: PropTypes.bool,
+   dots: PropTypes.bool,
 }

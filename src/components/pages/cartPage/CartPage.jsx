@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { decreaseCart, addToCart, getTotals, clearCart } from '../../../features/cartSlice';
 
@@ -8,7 +9,7 @@ import CartItem from '../../cartItem/CartItem';
 
 import classes from './cartPage.module.css';
 
-class _CartPage extends Component {
+class CartPage extends Component {
    onDecrease = (productId) => {
       this.props.decreaseCart(productId)
       this.props.getTotals();
@@ -85,4 +86,12 @@ export default connect(mapStateToProps, {
    addToCart,
    getTotals,
    clearCart
-})(_CartPage);
+})(CartPage);
+
+CartPage.propTypes = {
+   decreaseCart: PropTypes.func.isRequired,
+   addToCart: PropTypes.func.isRequired,
+   getTotals: PropTypes.func.isRequired,
+   cart: PropTypes.object.isRequired,
+   currencies: PropTypes.object.isRequired,
+}

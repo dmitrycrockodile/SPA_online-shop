@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { ReactComponent as Cart } from '../../assets/icons/cart.svg';
 
@@ -60,3 +61,9 @@ const mapStateToProps = (state) => ({
    currencies: state.currencies,
 });
 export default connect(mapStateToProps)(ProductCard);
+
+ProductCard.propTypes = {
+   item: PropTypes.object.isRequired,
+   currencies: PropTypes.object.isRequired,
+   handleAddToCart: PropTypes.func.isRequired,
+}

@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { changeCurrency } from '../../features/currencySlice';
 
@@ -62,3 +63,8 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
    changeCurrency
 })(CurrencyExchanger);
+
+CurrencyExchanger.propTypes = {
+   currencies: PropTypes.object.isRequired,
+   changeCurrency: PropTypes.func.isRequired,
+}

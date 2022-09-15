@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { useParams, Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 import { Interweave } from 'interweave';
 
 import { loadProduct } from '../../../features/productsSlice';
@@ -32,7 +33,9 @@ class ProductPage extends Component {
       const { products, params, addToCart, currencies } = this.props;
 
       const item = products.item;
-      const porduct = (products.item.id !== params.productId) ? null : <Product addToCart={addToCart} product={item} currencies={currencies.currentCurrency}/>
+      const porduct = (products.item.id !== params.productId) 
+                      ? null 
+                      : <Product addToCart={addToCart} product={item} currency={currencies.currentCurrency}/>
       
       return (
          <div className='productPage'>
@@ -68,9 +71,9 @@ class Product extends Component {
    }
    
    render() {
-      const { currencies, product, addToCart } = this.props;
+      const { currency, product, addToCart } = this.props;
       const { brand, name, gallery, attributes, id, prices, description, inStock } = product;
-      const price = prices.filter(price => price.currency.symbol === currencies).map(item => item.amount);
+      const price = prices.filter(price => price.currency.symbol === currency).map(item => item.amount);
       
       return (
          <div className={classes.product} key={id}>
@@ -91,7 +94,7 @@ class Product extends Component {
                      ) 
                   })}
                   <div className={classes.typeTitle}>Price:</div>
-                  <span className={classes.price}>{currencies}{price}</span>
+                  <span className={classes.price}>{currency}{price}</span>
                </div>
                <Link to="/cart">
                   <button className={inStock ? `${classes.orderBtn}` : `${classes.orderBtn} ${classes.notInStock}`}
@@ -110,8 +113,23 @@ class Product extends Component {
 const mapStateToProps = (state) => ({
    products: state.products,
    currencies: state.currencies
-})
+});
+
 export default connect(mapStateToProps, {
    loadProduct,
    addToCart
 })(withParams(ProductPage));
+
+ProductPage.propTypes = {
+   params: PropTypes.object.isRequired,
+   loadProduct: PropTypes.func.isRequired,
+   addToCart: PropTypes.func.isRequired,
+   products: PropTypes.object.isRequired,
+   currencies: PropTypes.object.isRequired,
+}
+
+Product.propTypes = {
+   currency: PropTypes.string.isRequired,
+   product: PropTypes.object.isRequired,
+   addToCart: PropTypes.func.isRequired,
+}

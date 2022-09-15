@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { addToCart, getTotals } from '../../features/cartSlice';
 
@@ -7,7 +8,7 @@ import ProductCard from '../productCard/ProductCard';
 
 import classes from './productsList.module.css';
 
-class _ProductsList extends Component {
+class ProductsList extends Component {
    handleAddToCart = (product) => {
       this.props.addToCart(product);
       this.props.getTotals();
@@ -43,4 +44,11 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
    addToCart,
    getTotals
-})(_ProductsList);
+})(ProductsList);
+
+ProductsList.propTypes = {
+   addToCart: PropTypes.func.isRequired,
+   getTotals: PropTypes.func.isRequired,
+   filter: PropTypes.string.isRequired,
+   currencies: PropTypes.object.isRequired,
+}
