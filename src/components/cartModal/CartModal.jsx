@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { emptyCartMessage } from '../../utils/constants';
+import { EMPTY_CART_MESSAGE } from '../../utils/constants';
 import { decreaseCart, addToCart, getTotals } from '../../features/cartSlice';
 
 import CartItem from '../cartItem/CartItem';
@@ -26,7 +26,7 @@ class CartModal extends Component {
    render() {
       const { cart, onToggleModal, isOpen, currencies } = this.props;
 
-      const items = cart.cartItems.length === 0 ? (<h2>{emptyCartMessage}</h2>) : cart.cartItems.map(item => {
+      const items = cart.cartItems.length === 0 ? (<h2>{EMPTY_CART_MESSAGE}</h2>) : cart.cartItems.map(item => {
          const { brand, id, name, productQuantity, attributes, gallery, prices, attributeValues } = item;
          
          return (

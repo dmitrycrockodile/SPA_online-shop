@@ -1,15 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { cartItems, currency, defaultCurrency } from "../utils/constants";
+import { filterPrice } from "../utils/selectors";
+import { CART_ITEMS, CURRENCY, DEFAULT_CURRENCY } from "../utils/constants";
 import { changeCurrency } from "./currencySlice";
 
 const initialState = {
-   cartItems: localStorage.getItem(cartItems) ? JSON.parse(localStorage.getItem(cartItems)) : [],
+   cartItems: localStorage.getItem(CART_ITEMS) ? JSON.parse(localStorage.getItem(CART_ITEMS)) : [],
    totalCartAmount: 0,
    totalCartQuantity: 0,
    status: null,
    error: null,
-   currency: localStorage.getItem(currency) ? JSON.parse(localStorage.getItem(currency)) : defaultCurrency,
+   currency: localStorage.getItem(CURRENCY) ? JSON.parse(localStorage.getItem(CURRENCY)) : DEFAULT_CURRENCY,
 }
 
 const cartSlice = createSlice({
@@ -32,7 +33,7 @@ const cartSlice = createSlice({
             items.push({...action.payload, productQuantity: 1});
          }
 
-         localStorage.setItem(cartItems, JSON.stringify(state.cartItems));
+         localStorage.setItem(CART_ITEMS, JSON.stringify(state.cartItems));
       },
       decreaseCart: (state, action) => {
          const items = state.cartItems;
@@ -48,13 +49,13 @@ const cartSlice = createSlice({
             state.cartItems = newCartItems;
          }
 
-         localStorage.setItem(cartItems, JSON.stringify(state.cartItems));
+         localStorage.setItem(CART_ITEMS, JSON.stringify(state.cartItems));
       },
       getTotals: (state) => {
          let { total, quantity } = state.cartItems.reduce(
             (cartTotal, cartItem) => {
                const { prices, productQuantity } = cartItem;
-               const price = prices.filter(price => price.currency.symbol === state.currency).map(item => item.amount);
+               const price = filterPrice(prices, state.currency);
                const itemTotal = price * productQuantity;
 
                //overcoming accurate calculations
@@ -74,7 +75,7 @@ const cartSlice = createSlice({
       },
       clearCart: (state) => {
          state.cartItems = [];
-         localStorage.setItem(cartItems, JSON.stringify(state.cartItems));
+         localStorage.setItem(CART_ITEMS, JSON.stringify(state.cartItems));
       }
    }, 
    extraReducers: (builder) => {

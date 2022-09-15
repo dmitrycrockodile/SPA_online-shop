@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { carouselSlideWidth, minCarouselOffset } from '../../utils/constants';
+import { CAROUSEL_SLIDE_WIDTH, MIN_CAROUSEL_OFFSET } from '../../utils/constants';
 
 import { ReactComponent as Arrow } from '../../assets/icons/arrow-left.svg';
 
@@ -9,10 +9,10 @@ import classes from './carousel.module.css';
 
 class Carousel extends Component {
    state = {
-      offset: minCarouselOffset,
+      offset: MIN_CAROUSEL_OFFSET,
    }
 
-   _maxOffset = -(carouselSlideWidth * (this.props.arr.length - 1));
+   _maxOffset = -(CAROUSEL_SLIDE_WIDTH * (this.props.arr.length - 1));
 
    showContent(arr, alt) {
       const slides = arr.map(slide => {
@@ -24,7 +24,7 @@ class Carousel extends Component {
 
    handleDotClick = (index) => {
       this.setState({
-         offset: -(carouselSlideWidth * index)
+         offset: -(CAROUSEL_SLIDE_WIDTH * index)
       });
    }
 
@@ -38,7 +38,7 @@ class Carousel extends Component {
       }
 
       this.setState(state => ({
-         offset: state.offset + (sign * carouselSlideWidth)
+         offset: state.offset + (sign * CAROUSEL_SLIDE_WIDTH)
       }));
    }
 
@@ -51,7 +51,7 @@ class Carousel extends Component {
       const arrows = this.props.arrows ? (<><button 
                   className={`${classes.btn} ${classes.btnLeft}`} 
                   onClick={() => this.handleArrowClick('left')}
-                  disabled={offset === minCarouselOffset}
+                  disabled={offset === MIN_CAROUSEL_OFFSET}
                   style={isHiddenButton}
                   ><Arrow /></button>
                <button 

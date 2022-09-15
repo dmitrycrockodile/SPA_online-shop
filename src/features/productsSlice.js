@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-import { loadingStatus, errorMessage, successStatus, errorStatus } from "../utils/constants";
+import { LOADING_STATUS, ERROR_MESSAGE, SUCCESS_STATUS, ERROR_STATUS } from "../utils/constants";
 import { GET_PRODUCTS, GET_PRODUCT } from "../utils/queries";
 
 export const loadProducts = createAsyncThunk(
@@ -10,7 +10,7 @@ export const loadProducts = createAsyncThunk(
          const products = GET_PRODUCTS();
          return products;
       } catch (e) {
-         console.log(errorMessage + e.message);
+         console.log(ERROR_MESSAGE + e.message);
       }
    } 
 )
@@ -22,7 +22,7 @@ export const loadProduct = createAsyncThunk(
          const product = await GET_PRODUCT(id);
          return product;
       } catch (e) {
-         console.log(errorMessage + e.message);
+         console.log(ERROR_MESSAGE + e.message);
       }
    }
 )
@@ -30,7 +30,7 @@ export const loadProduct = createAsyncThunk(
 const initialState = {
    items: [],
    item: {},
-   status: loadingStatus,
+   status: LOADING_STATUS,
    error: null,
 };
 
@@ -47,14 +47,14 @@ const productsSlice = createSlice({
             state.item = action.payload;
          })
          .addMatcher((action) => action.type.endsWith('/pending'), (state, action) => {
-            state.status = loadingStatus;
+            state.status = LOADING_STATUS;
          })
          .addMatcher((action) => action.type.endsWith('/fulfilled'), (state, action) => {
-            state.status = successStatus;
+            state.status = SUCCESS_STATUS;
          })
          .addMatcher((action) => action.type.endsWith('/rejected'), (state, action) => {
-            state.status = errorStatus;
-            state.error = errorMessage;
+            state.status = ERROR_STATUS;
+            state.error = ERROR_MESSAGE;
          })
    }
 });

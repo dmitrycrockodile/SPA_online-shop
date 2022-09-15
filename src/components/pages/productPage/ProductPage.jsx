@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { Interweave } from 'interweave';
 
+import { filterPrice } from '../../../utils/selectors';
 import { loadProduct } from '../../../features/productsSlice';
 import { addToCart } from '../../../features/cartSlice';
 
@@ -73,7 +74,7 @@ class Product extends Component {
    render() {
       const { currency, product, addToCart } = this.props;
       const { brand, name, gallery, attributes, id, prices, description, inStock } = product;
-      const price = prices.filter(price => price.currency.symbol === currency).map(item => item.amount);
+      const price = filterPrice(prices, currency);
       
       return (
          <div className={classes.product} key={id}>

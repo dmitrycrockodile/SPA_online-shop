@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import { filterPrice } from '../../utils/selectors';
+
 import { ReactComponent as Cart } from '../../assets/icons/cart.svg';
 
 import classes from './productCard.module.css';
@@ -36,8 +38,7 @@ class ProductCard extends Component {
    render() {
       const { item, currencies } = this.props;
       const { name, prices, gallery, id, inStock } = item;
-
-      const price = prices.filter(price => price.currency.symbol === currencies.currentCurrency).map(item => item.amount);
+      const price = filterPrice(prices, currencies.currentCurrency);
       
       return (
          <li className={classes.product} id={id}>

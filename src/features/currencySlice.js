@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { errorMessage, currency, defaultCurrency, loadingStatus, successStatus, errorStatus } from "../utils/constants";
+import { ERROR_MESSAGE, CURRENCY, DEFAULT_CURRENCY, LOADING_STATUS, SUCCESS_STATUS, ERROR_STATUS } from "../utils/constants";
 import { GET_CURRENCIES } from "../utils/queries";
 
 export const loadCurrencies = createAsyncThunk(
@@ -10,15 +10,15 @@ export const loadCurrencies = createAsyncThunk(
          const currencies = GET_CURRENCIES();
          return currencies;
       } catch (e) {
-         console.log(errorMessage + e.message);
+         console.log(ERROR_MESSAGE + e.message);
       }
    }
 )
 
 const initialState = {
-   currentCurrency: localStorage.getItem(currency) ? JSON.parse(localStorage.getItem(currency)) : defaultCurrency,
+   currentCurrency: localStorage.getItem(CURRENCY) ? JSON.parse(localStorage.getItem(CURRENCY)) : DEFAULT_CURRENCY,
    currencies: [],
-   status: loadingStatus,
+   status: LOADING_STATUS,
    error: null,
 }
 
@@ -28,21 +28,21 @@ const currenciesSlice = createSlice({
    reducers: { 
       changeCurrency: (state, action) => {
          state.currentCurrency = action.payload;
-         localStorage.setItem(currency, JSON.stringify(state.currentCurrency));
+         localStorage.setItem(CURRENCY, JSON.stringify(state.currentCurrency));
       },
    },
    extraReducers: (builder) => {
       builder
          .addCase(loadCurrencies.pending, (state) => {
-            state.status = loadingStatus;
+            state.status = LOADING_STATUS;
          })
          .addCase(loadCurrencies.fulfilled, (state, action) => {
-            state.status = successStatus;
+            state.status = SUCCESS_STATUS;
             state.currencies = action.payload;
          })
          .addCase(loadCurrencies.rejected, (state) => {
-            state.status = errorStatus;
-            state.error = errorMessage;
+            state.status = ERROR_STATUS;
+            state.error = ERROR_MESSAGE;
          })
    }
 });

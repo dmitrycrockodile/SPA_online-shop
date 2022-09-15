@@ -2,6 +2,8 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { filterPrice } from '../../utils/selectors';
+
 import RadioGroup from '../radioGroup/RadioGroup';
 import Carousel from '../carousel/Carousel';
 import { ReactComponent as PlusIcon } from '../../assets/icons/plus.svg';
@@ -13,7 +15,8 @@ class CartItem extends Component {
    render() {
       const { id, brand, name, quantity, attributes, images, prices, onDecrease, onIncrease, attributeValues, modalVersion, currencies } = this.props;
 
-      const price = prices.filter(price => price.currency.symbol === currencies.currentCurrency).map(item => item.amount);
+      const price = filterPrice(prices, currencies.currentCurrency);
+      
       const itemSizeClass = modalVersion ? `${classes.item} ${classes.modal}` : `${classes.item}`;
 
       const attributess = attributes.map((attr, i) => {

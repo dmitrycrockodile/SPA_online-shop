@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { colorAttributeName, whiteColor } from '../../utils/constants';
+import { COLOR_ATTRIBUTE_NAME, WHITE_COLOR } from '../../utils/constants';
 
 import classes from './radioGroup.module.css';
 
@@ -37,10 +37,10 @@ class RadioGroup extends Component {
          <div key={name} className={itemSizeClass}>
             <h6 className={classes.typeTitle}>{name}:</h6>
             <div className={classes.typesContainer}>
-               { name === colorAttributeName ? items.map(item =>
+               { name === COLOR_ATTRIBUTE_NAME ? items.map(item =>
                (
                   <button key={item.id} 
-                           style={item.value === whiteColor ? {'backgroundColor': `${item.value}`, 'border': '1px solid'} : {'backgroundColor': `${item.value}`}} 
+                           style={item.value === WHITE_COLOR ? {'backgroundColor': `${item.value}`, 'border': '1px solid'} : {'backgroundColor': `${item.value}`}} 
                            className={`${classes.colorAttr} ${current === item.value ? classes.active : ''}`}
                            onClick={() => this.onAttributeChoose(item)}
                            disabled={disabled}></button>

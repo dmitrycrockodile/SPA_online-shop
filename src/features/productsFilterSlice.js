@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { filterAll } from '../utils/constants';
+import { FILTER_ALL } from '../utils/constants';
 
 const filterSilce = createSlice({
    name: '@@filter',
-   initialState: filterAll,
+   initialState: FILTER_ALL,
    reducers: {
       changeFilter: (_, action) => {
          return action.payload

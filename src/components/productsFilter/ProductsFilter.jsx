@@ -20,7 +20,7 @@ class ProductFilter extends Component {
    render() {
       const { changeFilter, categories } = this.props;
 
-      const items = categories.entities.map((filter, i) => {
+      const items = categories.entities.map(filter => {
          const activee = this.state.isActive === filter;
          const activeClass = activee ? `${classes.link} ${classes.active}` : classes.link;
 
