@@ -15,7 +15,7 @@ import TheHeader from './components/theHeader/TheHeader';
 import classes from './App.module.css';
 
 
-export default class App extends Component {
+class App extends Component {
   state = {
     modalIsOpen: false,
   }
@@ -46,3 +46,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default App;

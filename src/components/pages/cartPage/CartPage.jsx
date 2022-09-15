@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import { emptyCartMessage } from '../../../utils/constants';
 import { decreaseCart, addToCart, getTotals, clearCart } from '../../../features/cartSlice';
 
 import CartItem from '../../cartItem/CartItem';
@@ -29,7 +30,7 @@ class CartPage extends Component {
       const { cart, currencies } = this.props;
 
       const items = cart.cartItems.length === 0 
-         ? (<h2 className={classes.makeOrder}>Make your first order!</h2>) 
+         ? (<h2 className={classes.makeOrder}>{emptyCartMessage}</h2>) 
          : cart.cartItems.map(item => {
             const { brand, id, name, productQuantity, attributes, gallery, prices, attributeValues } = item;
             

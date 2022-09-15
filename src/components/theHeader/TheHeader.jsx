@@ -9,7 +9,7 @@ import { ReactComponent as Logo } from '../../assets/icons/logo.svg';
 
 import classes from './theHeader.module.css';
 
-export default class TheHeader extends Component {
+class TheHeader extends Component {
    render() {
       return (
          <header className={classes.header}>
@@ -25,6 +25,8 @@ export default class TheHeader extends Component {
       );
    }
 }
+
+export default TheHeader;
 
 TheHeader.propTypes = {
    onToggleModal: PropTypes.func.isRequired,

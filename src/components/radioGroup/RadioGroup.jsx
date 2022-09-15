@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { colorAttributeName, whiteColor } from '../../utils/constants';
+
 import classes from './radioGroup.module.css';
 
 class RadioGroup extends Component {
@@ -28,17 +30,17 @@ class RadioGroup extends Component {
       const { attributes, modalVersion, onChange } = this.props;
       const { name, items } = attributes;
 
-      const disabled = onChange ? false : true;
+      const disabled = !onChange;
       const itemSizeClass = modalVersion ? `${classes.item} ${classes.modal}` : `${classes.item}`;
      
       return (
          <div key={name} className={itemSizeClass}>
             <h6 className={classes.typeTitle}>{name}:</h6>
             <div className={classes.typesContainer}>
-               { name === 'Color' ? items.map(item =>
+               { name === colorAttributeName ? items.map(item =>
                (
                   <button key={item.id} 
-                           style={item.value === '#FFFFFF' ? {'backgroundColor': `${item.value}`, 'border': '1px solid'} : {'backgroundColor': `${item.value}`}} 
+                           style={item.value === whiteColor ? {'backgroundColor': `${item.value}`, 'border': '1px solid'} : {'backgroundColor': `${item.value}`}} 
                            className={`${classes.colorAttr} ${current === item.value ? classes.active : ''}`}
                            onClick={() => this.onAttributeChoose(item)}
                            disabled={disabled}></button>

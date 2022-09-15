@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { addToCart, getTotals } from '../../features/cartSlice';
+import { filterAll, successStatus } from '../../utils/constants';
 
 import ProductCard from '../productCard/ProductCard';
 
@@ -18,7 +19,7 @@ class ProductsList extends Component {
       const { filter, currencies } = this.props;
       const { items, status, error } = this.props.products;
 
-      const productsList = items.filter(item => item.category === `${filter}` || filter === 'all').map(product => {
+      const productsList = items.filter(item => item.category === `${filter}` || filter === filterAll).map(product => {
                            return <ProductCard item={product}
                                                key={product.id}
                                                currnecy={currencies.currnecy}
@@ -29,7 +30,7 @@ class ProductsList extends Component {
          <div className={classes.products}>
             <h1 className={classes.title}>{filter}</h1>
             <ul className={classes.list}>
-               { status === 'success' && !error && productsList }
+               { status === successStatus && !error && productsList }
             </ul>
          </div>
       );
