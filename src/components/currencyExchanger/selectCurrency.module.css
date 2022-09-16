@@ -16,6 +16,11 @@
    background-color: transparent;
    border: none;
    cursor: pointer;
+   transition: all .2s;
+}
+
+.input:focus {
+   transform: translateY(-.5rem) scale(1.02);
 }
 
 .input:last-child {
@@ -46,7 +51,6 @@
 .item {
    height: 4.5rem;
    transition: background-color .2s ease-in;
-   padding-right: 1.5rem;
 }
 
 .item:hover {
@@ -56,6 +60,8 @@
 }
 
 .btn {
+   height: 100%;
+   width: 100%;
    background: transparent;
    line-height: 4.5rem;
    border: none;
@@ -63,6 +69,10 @@
    font-family: 'Raleway', sans-serif;
    font-size: 1.8rem;
    font-weight: 500;
+}
+
+.btn:focus {
+   background-color: #EEEEEE;
 }
 
 .arrow.active {

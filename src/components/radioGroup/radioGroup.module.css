@@ -52,7 +52,7 @@
    color: #1D1F22;
 }
 
-.attr.active {
+.attr.active, .attr:focus {
    color: #fff;
    background-color: #1D1F22;
 }
@@ -75,7 +75,7 @@
    margin-left: .8rem;
 }
 
-.colorAttr.active {
+.colorAttr.active, .colorAttr:focus {
    outline: 1px solid #5ECE7B;
    outline-offset: 1px;
 }

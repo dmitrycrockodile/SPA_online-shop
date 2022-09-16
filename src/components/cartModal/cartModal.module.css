@@ -83,7 +83,7 @@
    transition: background-color .1s ease-in, color .1s ease-in, border .1s ease-in;
 }
 
-.btn:hover {
+.btn:hover, .btn:focus {
    color: #fff;
    background-color: #5ECE7B;
    border: 1px solid #5ECE7B;

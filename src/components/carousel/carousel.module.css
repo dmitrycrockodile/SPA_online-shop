@@ -83,6 +83,6 @@
    margin-bottom: 2rem;
 }
 
-.dot:hover {
+.dot:hover, .dot:focus {
    transform: scale(1.1);
 }

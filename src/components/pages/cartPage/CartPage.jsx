@@ -68,7 +68,7 @@ class CartPage extends Component {
                      <span>{currencies.currentCurrency}{cart.totalCartAmount}</span>
                   </div>
                </div>
-               <Link to="/">
+               <Link to="/" className={classes.link}>
                   <button className={classes.orderBtn} onClick={() => this.onClear()}>Order</button>
                </Link>
             </div>

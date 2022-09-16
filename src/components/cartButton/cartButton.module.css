@@ -10,6 +10,10 @@
    transform: translateY(-.05rem);
 }
 
+.cart:focus {
+   transform: translateY(-.3rem);
+}
+
 .counter {
    font-family: 'Raleway', sans-serif;
    position: absolute;

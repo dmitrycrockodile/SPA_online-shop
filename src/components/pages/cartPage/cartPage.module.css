@@ -45,7 +45,7 @@
    transition: all .3s;
 }
 
-.orderBtn:hover {
+.orderBtn:hover, .orderBtn:focus, .link:focus .orderBtn {
    transform: scale(1.01);
    background-color: #31c559;
 }

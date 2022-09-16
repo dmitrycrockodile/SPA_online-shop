@@ -97,7 +97,7 @@ class Product extends Component {
                   <div className={classes.typeTitle}>Price:</div>
                   <span className={classes.price}>{currency}{price}</span>
                </div>
-               <Link to="/cart">
+               <Link className={classes.link} to="/cart">
                   <button className={inStock ? `${classes.orderBtn}` : `${classes.orderBtn} ${classes.notInStock}`}
                           disabled={!inStock} 
                           onClick={() => addToCart(this.handleAddToCart())}
