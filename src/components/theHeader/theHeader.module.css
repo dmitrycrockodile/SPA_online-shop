@@ -1,5 +1,3 @@
-/* @import '../../assets/style/variables.scss'; */
-
 .header {
    width: 100%;
    height: 8rem;
@@ -13,4 +11,12 @@
 .actions {
    display: flex;
    align-items: center;
+}
+
+.logo {
+   transition: transform .3s ease-in;
+}
+
+.logo:focus {
+   transform: scale(1.1);
 }

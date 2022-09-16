@@ -5,14 +5,17 @@
 }
 
 .input {
+   font-family: 'Raleway', sans-serif;
+   font-size: 1.8rem;
+   font-weight: 500;
    width: 4.3rem;
+   margin-right: 2.2rem;
    display: flex;
    align-items: center;
    justify-content: space-evenly;
+   background-color: transparent;
+   border: none;
    cursor: pointer;
-   margin-right: 2.2rem;
-   font-size: 1.8rem;
-   font-weight: 500;
 }
 
 .input:last-child {
@@ -42,7 +45,6 @@
 
 .item {
    height: 4.5rem;
-   line-height: 4.5rem;
    transition: background-color .2s ease-in;
    padding-right: 1.5rem;
 }
@@ -51,6 +53,16 @@
    transition: background-color .2s ease-in;
    background-color: #EEEEEE;
    cursor: pointer;
+}
+
+.btn {
+   background: transparent;
+   line-height: 4.5rem;
+   border: none;
+   cursor: pointer;
+   font-family: 'Raleway', sans-serif;
+   font-size: 1.8rem;
+   font-weight: 500;
 }
 
 .arrow.active {

@@ -15,7 +15,7 @@ class TheHeader extends Component {
          <header className={classes.header}>
             <ProductsFilter />
 
-            <Link to='/'><Logo /></Link>
+            <Link className={classes.logo} aria-label="Shop logo" to='/'><Logo/></Link>
 
             <div className={classes.actions}>
                <CurrencyExchanger />

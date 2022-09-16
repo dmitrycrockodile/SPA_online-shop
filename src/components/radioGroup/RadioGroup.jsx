@@ -43,7 +43,8 @@ class RadioGroup extends Component {
                            style={item.value === WHITE_COLOR ? {'backgroundColor': `${item.value}`, 'border': '1px solid'} : {'backgroundColor': `${item.value}`}} 
                            className={`${classes.colorAttr} ${current === item.value ? classes.active : ''}`}
                            onClick={() => this.onAttributeChoose(item)}
-                           disabled={disabled}></button>
+                           disabled={disabled}
+                           aria-label={`color: ${item.value}`}></button>
                )) : items.map(item => (
                   <button key={item.id} 
                            className={`${classes.attr} ${current === item.value ? classes.active : ''}`}

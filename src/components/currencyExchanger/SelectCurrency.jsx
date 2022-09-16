@@ -30,24 +30,24 @@ class CurrencyExchanger extends Component {
       const options = currencies.currencies;
 
       const items = isActive ? (
-         <ul className={classes.list}>
+         <ul className={classes.list} aria-label="Currencies">
             {options.map(value => {
                return <li className={classes.item}
                           onClick={() => {
                               this.toggleActive()
                               changeCurrency(value.symbol)
                            }}
-                          key={value.symbol}>{value.symbol}</li>
+                          key={value.symbol}><button className={classes.btn}>{value.symbol}</button></li>
             })}
          </ul>
       ) : null;
 
       return (
-         <div className={classes.select}>
-            <div className={classes.input} onClick={() => this.onSelectClick()}>
+         <div className={classes.select} aria-label="Currency Exchanger">
+            <button className={classes.input} onClick={() => this.onSelectClick()} aria-label="Open currencies list">
                <span className={classes.current}>{ currencies.currentCurrency }</span>
                <Arrow className={isActive ? `${classes.arrow} ${classes.active}` : `${classes.arrow}`} />
-            </div>
+            </button>
             <div className={classes.dropdown}>
                { items }
             </div>

@@ -11,13 +11,13 @@ class CartButton extends Component {
       const { onToggleModal, cart } = this.props;
 
       return (
-         <div className={classes.cart} onClick={() => onToggleModal()}>
+         <button className={classes.cart} onClick={() => onToggleModal()} aria-label="Open cart">
             <Cart /> 
 
-            <span className={classes.counter}>
+            <span className={classes.counter} aria-label="Total cart quantity">
                {cart.totalCartQuantity}
             </span>
-         </div>
+         </button>
       );
    }
 }

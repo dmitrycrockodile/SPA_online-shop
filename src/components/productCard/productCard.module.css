@@ -5,6 +5,16 @@
    position: relative;
 }
 
+.link:focus .product {
+   box-shadow: 0 .4rem 3.5rem rgba(168, 172, 176, 19%);
+   transform: scale(1.01);
+}
+
+.link:focus .add_btn {
+   opacity: 1;
+   visibility: visible;
+}
+
 .product:hover {
    box-shadow: 0 .4rem 3.5rem rgba(168, 172, 176, 19%);
    transform: scale(1.01);
@@ -58,6 +68,12 @@ img {
    box-shadow: 0 .4rem 2rem rgba(168, 172, 176, 19%);
    transition: all .15s ease-in;
    cursor: pointer;
+}
+
+.add_btn:focus {
+   opacity: 1;
+   visibility: visible;
+   outline: 2px solid #45995b;
 }
 
 .invisible {

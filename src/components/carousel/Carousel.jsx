@@ -53,13 +53,15 @@ class Carousel extends Component {
                   onClick={() => this.handleArrowClick('left')}
                   disabled={offset === MIN_CAROUSEL_OFFSET}
                   style={isHiddenButton}
-                  ><Arrow /></button>
+                  aria-label="Left button"
+                  ><Arrow role="button" /></button>
                <button 
                   className={`${classes.btn} ${classes.btnRight}`} 
                   onClick={() => this.handleArrowClick('right')}
                   disabled={offset === this._maxOffset}
                   style={isHiddenButton}
-                  ><Arrow /></button></>) : null;
+                  aria-label="Right button"
+                  ><Arrow role="button" /></button></>) : null;
 
       const dots = this.props.dots ? <div className={classes.dots}> {arr.map((item, i) => {
          return (

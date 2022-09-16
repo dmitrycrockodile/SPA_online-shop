@@ -38,12 +38,12 @@ class CartItem extends Component {
                {attributess}
             </div>
             <div className={classes.counter}>
-               <button className={classes.counterBtn} onClick={() => onIncrease({id})}>
-                  <PlusIcon />
+               <button className={classes.counterBtn} onClick={() => onIncrease({id})} aria-label="Increase quantity">
+                  <PlusIcon role="button" />
                </button>
                <span>{quantity}</span>
-               <button className={classes.counterBtn} onClick={() => onDecrease(id)}>
-                  <MinusIcon />
+               <button className={classes.counterBtn} onClick={() => onDecrease(id)} aria-label="Decrease quantity">
+                  <MinusIcon role="button"/>
                </button>
             </div>
             <div className={classes.imageContainer}>
