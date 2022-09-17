@@ -60,7 +60,7 @@ class CartModal extends Component {
                   <Link to='/cart' className={classes.btn} onClick={() => onToggleModal()}>
                      View bag
                   </Link>
-                  <button className={classes.btn}>Check out</button>
+                  <button className={`${classes.btn} ${classes.checkout}`}>Check out</button>
                </div>
             </div>
          </div>
