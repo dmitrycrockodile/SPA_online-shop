@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { Interweave } from 'interweave';
 
