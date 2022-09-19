@@ -52,7 +52,7 @@ class Product extends Component {
    }
 
    checkAttributes = () => {
-      if (this.props.product.attributes.length > 0 && this.state.attributeValues.length === 0) {
+      if (this.props.product.attributes.length > 0 && this.state.attributeValues.length !== this.props.product.attributes.length) {
          alert('Please choose product attributes');
       } else { 
          this.props.addToCart(this.handleAddToCart())
