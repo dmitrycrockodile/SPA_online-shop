@@ -60,7 +60,7 @@
    transition: all .3s;
 }
 
-.orderBtn:hover, .orderBtn:focus, .link:focus .orderBtn {
+.orderBtn:hover {
    background-color: #39c85f;
    border-radius: 5rem;
 }
