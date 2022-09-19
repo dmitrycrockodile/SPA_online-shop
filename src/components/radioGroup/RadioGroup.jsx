@@ -8,13 +8,7 @@ import classes from './radioGroup.module.css';
 class RadioGroup extends Component {
    state = {
       id: this.props.attributes.id,
-      current: this.props.attributeValues ? this.props.attributeValues.current : this.props.attributes.items[0].value,
-   }
-
-   componentDidMount() {
-      if(this.props.onChange) {
-         this.onPropertyChange();
-      }
+      current: this.props.attributeValues ? this.props.attributeValues.current : null,
    }
 
    onAttributeChoose(attr) {

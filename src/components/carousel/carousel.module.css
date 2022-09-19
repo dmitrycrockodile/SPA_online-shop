@@ -66,8 +66,8 @@
    display: flex;
    align-items: center;
    flex-direction: column;
-   flex-wrap: wrap;
    transform: translateX(-30%);
+   overflow-y: scroll;
 }
 
 .dot {

@@ -51,6 +51,14 @@ class Product extends Component {
       attributeValues: [],
    }
 
+   checkAttributes = () => {
+      if (this.props.product.attributes.length > 0 && this.state.attributeValues.length === 0) {
+         alert('Please choose product attributes');
+      } else { 
+         this.props.addToCart(this.handleAddToCart())
+      }
+   }
+
    handleAttributeChange = (attr) => {
       this.setState(({attributeValues}) => {
          const index = attributeValues.findIndex(el => el.id === attr.id);
@@ -72,7 +80,7 @@ class Product extends Component {
    }
    
    render() {
-      const { currency, product, addToCart } = this.props;
+      const { currency, product } = this.props;
       const { brand, name, gallery, attributes, id, prices, description, inStock } = product;
       const price = filterPrice(prices, currency);
       
@@ -97,12 +105,10 @@ class Product extends Component {
                   <div className={classes.typeTitle}>Price:</div>
                   <span className={classes.price}>{currency}{price}</span>
                </div>
-               <Link className={classes.link} to="/cart">
-                  <button className={inStock ? `${classes.orderBtn}` : `${classes.orderBtn} ${classes.notInStock}`}
-                          disabled={!inStock} 
-                          onClick={() => addToCart(this.handleAddToCart())}
-                          >{inStock ? 'Order' : 'Not in stock'}</button>
-               </Link>
+               <button className={inStock ? `${classes.orderBtn}` : `${classes.orderBtn} ${classes.notInStock}`}
+                        disabled={!inStock} 
+                        onClick={() => this.checkAttributes()}
+                        >{inStock ? 'ADD TO CART' : 'NOT IN STOCK'}</button>
                <div className={classes.description} >
                   <Interweave content={description} />
                </div>
