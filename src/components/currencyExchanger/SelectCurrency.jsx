@@ -13,11 +13,7 @@ class CurrencyExchanger extends Component {
       isActive: false,
    }
 
-   toggleActive = () => {
-      this.setState(({isActive: false}))
-   }
-
-   onSelectClick = () => {
+   onToggleActive = () => {
       this.setState(({isActive}) => ({
          isActive: !isActive
       }));
@@ -34,7 +30,7 @@ class CurrencyExchanger extends Component {
             {options.map(value => {
                return <li className={classes.item}
                           onClick={() => {
-                              this.toggleActive()
+                              this.onToggleActive()
                               changeCurrency(value.symbol)
                            }}
                           key={value.symbol}><button className={classes.btn}>{value.symbol}</button></li>
@@ -44,7 +40,7 @@ class CurrencyExchanger extends Component {
 
       return (
          <div className={classes.select} aria-label="Currency Exchanger">
-            <button className={classes.input} onClick={() => this.onSelectClick()} aria-label="Open currencies list">
+            <button className={classes.input} onClick={() => this.onToggleActive()} aria-label="Open currencies list">
                <span className={classes.current}>{ currencies.currentCurrency }</span>
                <Arrow className={isActive ? `${classes.arrow} ${classes.active}` : `${classes.arrow}`} />
             </button>

@@ -41,8 +41,8 @@ class ProductCard extends Component {
       const price = filterPrice(prices, currencies.currentCurrency);
       
       return (
-         <Link className={classes.link} to={`/products/${id}`} aria-label="Link to product page">
-            <li className={classes.product} id={id}>
+         <li className={classes.product} id={id}>
+            <Link className={classes.link} to={`/products/${id}`} aria-label="Link to product page">
                <div className={ inStock ? classes.img : `${classes.img} ${classes.unavailable}`}>
                   <img src={gallery[0]} alt={name} />   
                </div>
@@ -53,8 +53,8 @@ class ProductCard extends Component {
                   <h2 className={classes.title}>{name}</h2>
                   <span className={classes.product_price}>{currencies.currentCurrency}{price}</span>
                </div>
-            </li>
-         </Link>
+            </Link>
+         </li>
       );
    }
 }

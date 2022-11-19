@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, lazy, Suspense } from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { 
   ApolloProvider, 
@@ -6,14 +6,14 @@ import {
 
 import { client } from './utils/queries.js'
 
-import HomePage from './components/pages/HomePage';
-import CartPage from './components/pages/cartPage/CartPage.jsx';
-import ProductPage from './components/pages/productPage/ProductPage.jsx';
 import CartModal from './components/cartModal/CartModal.jsx';
 import TheHeader from './components/theHeader/TheHeader';
 
 import classes from './App.module.css';
 
+const CartPage = lazy(() => import('./components/pages/cartPage/CartPage.jsx'));
+const ProductPage = lazy(() => import('./components/pages/productPage/ProductPage.jsx'));
+const HomePage = lazy(() => import('./components/pages/HomePage'));
 
 class App extends Component {
   state = {
@@ -34,11 +34,13 @@ class App extends Component {
             <TheHeader onToggleModal={this.onToggleModal}/>
             <CartModal onToggleModal={this.onToggleModal} isOpen={this.state.modalIsOpen} />
               <main>
-                <Routes>
-                  <Route path="/cart" element={<CartPage/>}/>
-                  <Route path="/products/:productId" element={<ProductPage/>}/>
-                  <Route path="/" element={<HomePage/>}/>
-                </Routes>
+                <Suspense fallback={<span>'Loading...'</span>}>
+                  <Routes>
+                    <Route path="/cart" element={<CartPage/>}/>
+                    <Route path="/products/:productId" element={<ProductPage/>}/>
+                    <Route path="/" element={<HomePage/>}/>
+                  </Routes>
+                </Suspense>
               </main>
           </BrowserRouter>
         </div>

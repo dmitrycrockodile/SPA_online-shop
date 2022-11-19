@@ -19,10 +19,6 @@
    transition: all .2s;
 }
 
-.input:focus {
-   transform: translateY(-.5rem) scale(1.02);
-}
-
 .input:last-child {
    margin-left: 1rem;
 }
