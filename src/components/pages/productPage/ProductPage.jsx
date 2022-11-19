@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from "react-router-dom";
 import PropTypes from 'prop-types';
@@ -14,7 +14,7 @@ import Carousel from '../../carousel/Carousel';
 import classes from './productPage.module.css';
 
 function withParams(Component) {
-  return props => <Component {...props} params={useParams()} />;
+   return props => <Component {...props} params={useParams()} />;
 }
 
 class ProductPage extends Component {
@@ -46,7 +46,7 @@ class ProductPage extends Component {
    }
 };
 
-class Product extends Component {
+class Product extends PureComponent {
    state = {
       attributeValues: [],
    }

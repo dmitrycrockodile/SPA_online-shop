@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import { CAROUSEL_SLIDE_WIDTH, MIN_CAROUSEL_OFFSET } from '../../utils/constants';
@@ -7,7 +7,7 @@ import { ReactComponent as Arrow } from '../../assets/icons/arrow-left.svg';
 
 import classes from './carousel.module.css';
 
-class Carousel extends Component {
+class Carousel extends PureComponent {
    state = {
       offset: MIN_CAROUSEL_OFFSET,
    }
@@ -65,7 +65,7 @@ class Carousel extends Component {
 
       const dots = this.props.dots ? <div className={classes.dots}> {arr.map((item, i) => {
          return (
-            <button className={classes.dot} onClick={() => this.handleDotClick(i)} key={item}><img src={item} alt={alt}/></button>
+            <button className={classes.dot} onClick={() => this.handleDotClick(i)} key={item}><img className={classes.dotImg} src={item} alt={alt}/></button>
          ) 
       })} </div> : null;
 

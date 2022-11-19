@@ -29,7 +29,6 @@ class CartItem extends Component {
          ) 
       });
 
-
       return (
          <li className={itemSizeClass} id={id}>
             <div className={classes.info}>

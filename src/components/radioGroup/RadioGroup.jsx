@@ -1,11 +1,11 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import { COLOR_ATTRIBUTE_NAME, WHITE_COLOR } from '../../utils/constants';
 
 import classes from './radioGroup.module.css';
 
-class RadioGroup extends Component {
+class RadioGroup extends PureComponent {
    state = {
       id: this.props.attributes.id,
       current: this.props.attributeValues ? this.props.attributeValues.current : null,

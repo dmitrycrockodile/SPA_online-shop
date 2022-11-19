@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -10,7 +10,7 @@ import CartItem from '../cartItem/CartItem';
 
 import classes from './cartModal.module.css';
 
-class CartModal extends Component {
+class CartModal extends PureComponent {
    componentDidUpdate() {
       this.props.getTotals();
    }

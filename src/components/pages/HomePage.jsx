@@ -1,8 +1,8 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 
 import ProductsList from '../productsList/ProductsList';
 
-class HomePage extends Component {
+class HomePage extends PureComponent {
    render() {
       return (
          <>

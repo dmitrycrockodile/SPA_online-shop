@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -8,7 +8,7 @@ import { loadCategories } from '../../features/categoriesSlice';
 import classes from './productsFilter.module.css';
 import { Link } from 'react-router-dom';
 
-class ProductFilter extends Component {
+class ProductFilter extends PureComponent {
    state = {
       isActive: null,
    }

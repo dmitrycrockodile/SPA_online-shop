@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -9,7 +9,7 @@ import { ReactComponent as Logo } from '../../assets/icons/logo.svg';
 
 import classes from './theHeader.module.css';
 
-class TheHeader extends Component {
+class TheHeader extends PureComponent {
    render() {
       return (
          <header className={classes.header}>
