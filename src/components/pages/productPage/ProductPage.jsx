@@ -1,8 +1,9 @@
 import { Component, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from "react-router-dom";
-import PropTypes from 'prop-types';
 import { Interweave } from 'interweave';
+import Helmet from 'react-helmet';
+import PropTypes from 'prop-types';
 
 import { filterPrice } from '../../../utils/selectors';
 import { loadProduct } from '../../../features/productsSlice';
@@ -40,6 +41,13 @@ class ProductPage extends Component {
       
       return (
          <div className='productPage'>
+            <Helmet>
+               <title>{`${item.name} | ScandiShop`}</title>
+               <meta
+                  name="description"
+                  content={`${item.id} product page`}
+               />
+            </Helmet>
             {porduct}
          </div>
       );

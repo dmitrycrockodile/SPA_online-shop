@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 
 import { EMPTY_CART_MESSAGE } from '../../../utils/constants';
@@ -51,6 +52,13 @@ class CartPage extends Component {
       
       return (
          <div className={classes.cartPage}>
+            <Helmet>
+               <title>Cart Page</title>
+               <meta
+                  name="description"
+                  content="cart page"
+               />
+            </Helmet>
             <h1 className={classes.title}>Cart</h1>
             <div className={classes.list}>
                {items}
